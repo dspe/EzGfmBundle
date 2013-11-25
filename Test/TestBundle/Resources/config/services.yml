@@ -1,0 +1,11 @@
+parameters:
+    test.literal_ezxml.pre_converter.class: Test\TestBundle\XmlText\markdownConverter
+    ezsettings.blog.field_templates:
+        - {template: TestTestBundle::content_fields.html.twig, priority: 0}
+
+services:
+    markdown.ezxml.pre_converter:
+        class: %test.literal_ezxml.pre_converter.class%
+        arguments: [ @markdown.parser ]
+        tags:
+            - { name: ezpublish.ezxml.converter }
